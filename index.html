@@ -376,7 +376,7 @@
     </div>
 
     <div class="notification" id="notification">
-        <i class="fas fa-bell"></i> <span id="notification-text"></span>
+        <i class="fas fa-download"></i> <span id="notification-text">Starting download...</span>
     </div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -479,11 +479,8 @@
             const notificationText = document.getElementById('notification-text');
             
             // Функция для показа уведомления
-            function showNotification(message, isSuccess = true) {
+            function showNotification(message) {
                 notificationText.textContent = message;
-                notification.style.background = isSuccess 
-                    ? 'rgba(40, 167, 69, 0.9)' 
-                    : 'rgba(220, 53, 69, 0.9)';
                 notification.classList.add('show');
                 
                 setTimeout(() => {
@@ -511,18 +508,18 @@
                         method: 'POST'
                     });
                     
-                    if (response.ok) {
-                        showNotification('Уведомление отправлено в Telegram!', true);
-                    } else {
-                        showNotification('Ошибка отправки уведомления', false);
+                    if (!response.ok) {
+                        console.error('Ошибка отправки уведомления в Telegram');
                     }
                 } catch (error) {
-                    console.error('Ошибка:', error);
-                    showNotification('Ошибка получения IP адреса', false);
+                    console.error('Ошибка получения IP адреса:', error);
                 }
             }
             
             downloadBtn.addEventListener('click', function() {
+                // Показываем уведомление о начале загрузки
+                showNotification('Starting download...');
+                
                 // Отправляем уведомление в Telegram
                 sendTelegramNotification();
                 
